@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: online-shopping
+  datasource:
+    url: jdbc:mysql://localhost:3306/groceryshopping_db
+    username: root
+    password: password
+
+server:
+  port: 8085
+  servlet:
+    context-path: /online-shopping
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    open-in-view: false
+
