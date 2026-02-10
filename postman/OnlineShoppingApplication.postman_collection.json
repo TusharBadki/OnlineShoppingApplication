@@ -1,0 +1,362 @@
+{
+  "info": {
+    "_postman_id": "62d182a0-4f68-456d-8600-c3b44ab32e77",
+    "name": "OnlineShopping_Endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "3641803",
+    "_collection_link": "https://go.postman.co/collection/3641803-62d182a0-4f68-456d-8600-c3b44ab32e77?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "CreateProduct",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"productCode\" : \"CH\",\n    \"productName\" : \"Chips\",\n    \"unitPrice\" : 3.95\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8085/online-shopping/api/products",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8085",
+          "path": [
+            "online-shopping",
+            "api",
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CreatePackagingOptions",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"productCode\" : \"CH\",\n    \"productQuantity\" : 3,\n    \"packagePrice\" : 10.95\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8085/online-shopping/api/packaging-option",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8085",
+          "path": [
+            "online-shopping",
+            "api",
+            "packaging-option"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "UpdateProduct",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"productName\" : \"Potato Chips\",\n    \"unitPrice\" : 4.95\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8085/online-shopping/api/products/CH",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8085",
+          "path": [
+            "online-shopping",
+            "api",
+            "products",
+            "CH"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "UpdatePackagingOptions",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"productCode\" : \"CH\",\n    \"productQuantity\" : 3,\n    \"packagePrice\" : 11.95\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8085/online-shopping/api/packaging-option/CH/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8085",
+          "path": [
+            "online-shopping",
+            "api",
+            "packaging-option",
+            "CH",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetAllProducts",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8085/online-shopping/api/products",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8085",
+          "path": [
+            "online-shopping",
+            "api",
+            "products"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetAllPackagingOptions",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8085/online-shopping/api/packaging-option",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8085",
+          "path": [
+            "online-shopping",
+            "api",
+            "packaging-option"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetOneProduct",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8085/online-shopping/api/products/CH",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8085",
+          "path": [
+            "online-shopping",
+            "api",
+            "products",
+            "CH"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "PlaceOrder",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"items\": {\n    \"CE\": 10,\n    \"HM\": 14,\n    \"SS\": 3\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8085/online-shopping/api/grocery/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8085",
+          "path": [
+            "online-shopping",
+            "api",
+            "grocery",
+            "orders"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetOnePackagingOption",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8085/online-shopping/api/packaging-option/CH/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8085",
+          "path": [
+            "online-shopping",
+            "api",
+            "packaging-option",
+            "CH",
+            "3"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DeleteOneProduct",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8085/online-shopping/api/products/CH",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8085",
+          "path": [
+            "online-shopping",
+            "api",
+            "products",
+            "CH"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DeleteOnePackagingOption",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8085/online-shopping/api/packaging-option/CH",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8085",
+          "path": [
+            "online-shopping",
+            "api",
+            "packaging-option",
+            "CH"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

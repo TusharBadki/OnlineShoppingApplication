@@ -10,7 +10,6 @@ import com.project.online.shopping.repository.ProductRepository;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
@@ -49,17 +48,16 @@ public class OrderService {
 
     public BigDecimal calculate(Product product, int quantity, List<PackagingOption> options) {
 
+        //Descending sorting of package quantity, to calculate minimum number of packages required.
         options.sort(Comparator.comparingInt(PackagingOption::getQuantity).reversed());
 
         //----Actual logic----
         int quantityRemaining = quantity;
-        BigDecimal totalCost = BigDecimal.ZERO; // Prices are in BigDecimal
-        Map<Integer, Integer> packageBreakdownMap = new LinkedHashMap<>();
+        BigDecimal totalCost = BigDecimal.ZERO;
         for (PackagingOption option : options) {
-            int count = quantityRemaining / option.getQuantity(); //12 / 5 => 2.4 || remaining : 2
+            int count = quantityRemaining / option.getQuantity();
 
             if (count > 0) {
-               packageBreakdownMap.put(option.getQuantity(), count); // (5 che -> 2 set)
                totalCost = totalCost.add(option.getPackagePrice().multiply(BigDecimal.valueOf(count)));
                log.info(count + " packages of " + option.getQuantity() + " items ($" + option.getPackagePrice() + " each)");
                quantityRemaining = quantityRemaining - (option.getQuantity() * count);
@@ -68,12 +66,10 @@ public class OrderService {
 
         if (quantityRemaining > 0) {
             totalCost = totalCost.add(product.getUnitPrice().multiply(BigDecimal.valueOf(quantityRemaining)));
-            packageBreakdownMap.put(1, quantityRemaining);
             log.info(quantityRemaining + " packages of 1 items ($" + product.getUnitPrice() + " each)");
         }
 
         log.info(quantity + product.getCode() +  " for $" + totalCost);
-        //return new OrderResponse(totalCost, packageBreakdownMap);
         return totalCost;
     }
 }
