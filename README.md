@@ -147,6 +147,18 @@ Sample Response:
 }
 ```
 
+Sample log content:
+```json
+2026-02-11 23:37:34 [http-nio-8085-exec-2] INFO  c.p.o.shopping.service.OrderService - 2 packages of 5 items ($20.95 each)
+2026-02-11 23:37:34 [http-nio-8085-exec-2] INFO  c.p.o.shopping.service.OrderService - 10 CE for $41.90
+2026-02-11 23:37:34 [http-nio-8085-exec-2] INFO  c.p.o.shopping.service.OrderService - 1 packages of 8 items ($40.95 each)
+2026-02-11 23:37:34 [http-nio-8085-exec-2] INFO  c.p.o.shopping.service.OrderService - 1 packages of 5 items ($29.95 each)
+2026-02-11 23:37:34 [http-nio-8085-exec-2] INFO  c.p.o.shopping.service.OrderService - 1 packages of 1 items ($7.95 each)
+2026-02-11 23:37:34 [http-nio-8085-exec-2] INFO  c.p.o.shopping.service.OrderService - 14 HM for $78.85
+2026-02-11 23:37:34 [http-nio-8085-exec-2] INFO  c.p.o.shopping.service.OrderService - 3 packages of 1 items ($11.95 each)
+2026-02-11 23:37:34 [http-nio-8085-exec-2] INFO  c.p.o.shopping.service.OrderService - 3 SS for $35.85
+```
+
 ##  7. Business Logic
    -	Packaging options are sorted by quantity in descending order
    -	Maximum possible packages are applied first
@@ -196,6 +208,7 @@ http://localhost:8085/online-shopping/api/
 
 ##  9. Testing
    -	Unit tests are written using JUnit and Mockito
+   -    Web layer tests using WebMvcTest
 
 Run tests:
 ```shell

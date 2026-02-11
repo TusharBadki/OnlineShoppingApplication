@@ -76,16 +76,17 @@ class OrderServiceTest {
     @Test
     void process_shouldThrowException_whenProductNotFound() {
 
+        String productCode = "PP";
         // Mock Order
         OrderRequest request = new OrderRequest();
-        request.setItems(Map.of("PP", 5));
+        request.setItems(Map.of(productCode, 5));
 
-        when(productRepository.findByCode("PP"))
+        when(productRepository.findByCode(productCode))
             .thenReturn(Optional.empty());
 
         assertThatThrownBy(() -> orderService.process(request))
             .isInstanceOf(RuntimeException.class)
-            .hasMessage("Product not found");
+            .hasMessage(productCode +" Product not found");
     }
 
 

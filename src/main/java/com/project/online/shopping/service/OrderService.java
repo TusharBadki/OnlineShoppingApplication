@@ -34,7 +34,7 @@ public class OrderService {
             int orderQuantity = entry.getValue();
 
             Product product =  productRepository.findByCode(code)
-                .orElseThrow(() -> new RuntimeException("Product not found"));
+                .orElseThrow(() -> new RuntimeException(code + " Product not found"));
             List<PackagingOption> options = packagingRepository.findByCode(code);
 
             BigDecimal itemTotalCost = calculate(product, orderQuantity, options);
@@ -69,7 +69,7 @@ public class OrderService {
             log.info(quantityRemaining + " packages of 1 items ($" + product.getUnitPrice() + " each)");
         }
 
-        log.info(quantity + product.getCode() +  " for $" + totalCost);
+        log.info(quantity + " " + product.getCode() +  " for $" + totalCost);
         return totalCost;
     }
 }

@@ -5,15 +5,23 @@ spring:
     url: jdbc:mysql://localhost:3306/groceryshopping_db
     username: root
     password: password
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    open-in-view: false
 
 server:
   port: 8085
   servlet:
     context-path: /online-shopping
 
-  jpa:
-    hibernate:
-      ddl-auto: validate
-    show-sql: true
-    open-in-view: false
+logging:
+  file:
+    name: logs/application.log
+  level:
+    root: INFO
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} - %msg%n'
+    file: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n'
 
