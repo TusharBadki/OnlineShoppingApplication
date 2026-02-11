@@ -1,11 +1,13 @@
 package com.project.online.shopping.dto;
 
 import java.util.Map;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderRequest {
     private Map<String, Integer> items;
 }
