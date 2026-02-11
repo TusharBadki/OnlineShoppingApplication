@@ -148,7 +148,7 @@ Sample Response:
 ```
 
 Sample log content:
-```json
+```terminaloutput
 2026-02-11 23:37:34 [http-nio-8085-exec-2] INFO  c.p.o.shopping.service.OrderService - 2 packages of 5 items ($20.95 each)
 2026-02-11 23:37:34 [http-nio-8085-exec-2] INFO  c.p.o.shopping.service.OrderService - 10 CE for $41.90
 2026-02-11 23:37:34 [http-nio-8085-exec-2] INFO  c.p.o.shopping.service.OrderService - 1 packages of 8 items ($40.95 each)
